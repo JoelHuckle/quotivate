@@ -73,7 +73,7 @@ button:hover {
 nav {
   position: fixed;
   width: 100%;
-  padding: 20px 50px;
+  padding: 10px 50px;
   display: flex;
   justify-content: flex-end;
 }
@@ -89,6 +89,18 @@ nav {
 .main__inner {
   text-align: center;
   padding: 0 50px;
+}
+
+@media (max-width: 870px) {
+  a {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .main__inner {
+    padding: 0 20px;
+  }
 }
 
 /* LIGHT MODE */
