@@ -12,15 +12,20 @@ function generateQuote() {
   fetch("https://api.themotivate365.com/stoic-quote")
     .then((res) => res.json())
     .then((data) => {
-      quote.style.color = "";
-      data = data.quote.toUpperCase();
+      //prevents display of quotes longer than 40 words
+      if (data.quote.split(" ").length > 40) {
+        generateQuote();
+      } else {
+        quote.style.color = "";
+        data = data.quote.toUpperCase();
 
-      //remove @ from quote endings
-      if (data[data.length - 1] === "@") {
-        data = data.slice(0, data.length - 2);
+        //remove @ from quote endings
+        if (data[data.length - 1] === "@") {
+          data = data.slice(0, data.length - 2);
+        }
+
+        quote.innerText = data;
       }
-
-      quote.innerText = data;
     });
 }
 
